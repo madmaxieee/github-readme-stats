@@ -1,4 +1,5 @@
 export { blacklist } from "./blacklist.js";
+export { whitelist } from "./whitelist.js";
 export { Card } from "./Card.js";
 export { createProgressNode } from "./createProgressNode.js";
 export { I18n } from "./I18n.js";

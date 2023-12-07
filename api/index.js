@@ -1,5 +1,6 @@
 import { renderStatsCard } from "../src/cards/stats-card.js";
 import { blacklist } from "../src/common/blacklist.js";
+import { whitelist } from "../src/common/whitelist.js";
 import {
   clampValue,
   CONSTANTS,
@@ -44,6 +45,18 @@ export default async (req, res) => {
   if (blacklist.includes(username)) {
     return res.send(
       renderError("Something went wrong", "This username is blacklisted", {
+        title_color,
+        text_color,
+        bg_color,
+        border_color,
+        theme,
+      }),
+    );
+  }
+
+  if (!whitelist.includes(username)) {
+    return res.send(
+      renderError("Something went wrong", "This username is not whitelisted", {
         title_color,
         text_color,
         bg_color,
